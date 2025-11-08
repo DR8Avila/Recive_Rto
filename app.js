@@ -42,8 +42,10 @@ function parseBarcode(barcode) {
         const kilos = kilosNum.toFixed(3);
 
         // Valor declarado (extraer el número del resto)
-        const valorMatch = resto.match(/(\d+\.?\d*)/);
-        const valorDeclarado = valorMatch ? parseFloat(valorMatch[1]).toFixed(2) : "0.00";
+        const valorMatch = resto.match(/(\d+)/);
+        const valorDeclarado = valorMatch
+        ? (Number(valorMatch[1].slice(0, -2) || "0") + Number(valorMatch[1].slice(-2)) / 100).toFixed(2)
+        : "0.00";
 
         return {
             remito: remito,
