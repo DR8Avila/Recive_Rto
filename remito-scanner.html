@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#003366">
+    <title>Escáner de Remitos</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Escáner de Remitos</h1>
+            <p class="instruction">Coloque el cursor en el campo y escanee el código de barras</p>
+        </div>
+
+        <!-- Input de Escaneo -->
+        <div class="scan-section">
+            <label for="barcodeInput">Código de Barras:</label>
+            <input type="text" id="barcodeInput" class="barcode-input" placeholder="Escanee aquí..." autofocus>
+            <div id="status" class="status"></div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="buttons-section">
+            <button id="exportBtn" class="btn btn-primary">
+                📊 Exportar Archivo
+            </button>
+            <button id="clearBtn" class="btn btn-danger">
+                🗑️ Limpiar Datos
+            </button>
+            <button id="closeBtn" class="btn btn-secondary">
+                ❌ Finalizar y Cerrar
+            </button>
+        </div>
+
+        <!-- Contador de Registros -->
+        <div class="counter">
+            <span>Total de registros: <strong id="recordCount">0</strong></span>
+        </div>
+
+        <!-- Tabla de Resultados -->
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Remito</th>
+                        <th>Fecha</th>
+                        <th>CE</th>
+                        <th>Bultos</th>
+                        <th>Kilos</th>
+                        <th>V Declarado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Los registros se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
